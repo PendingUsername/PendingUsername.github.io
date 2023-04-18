@@ -1,7 +1,7 @@
 # Site settings
 title: Cloude Resume Challenge: AWS Cloud Engineer
 tag_text: Solo
-description: Solo is a Jekyll theme that supports single-page websites only, but supports them well. Yes, it’s responsive.
+description: The Cloud Resume Challenge is a hands-on project designed to help you bridge the gap from cloud certification to cloud job. It incorporates many of the skills that real cloud and DevOps engineers use in their daily work.
 
 # Build settings
 markdown: kramdown
