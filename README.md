@@ -1,8 +1,10 @@
-## Deprecated: Use my new theme "Duo" instead:
+## Cloud Resume Blog: A blog for my Cloud Resume Challenge resume. 
 
-[https://chibicode.github.io/duo/](https://chibicode.github.io/duo/)
+[Resume](https://www.jc-resume.xyz/)
 
 ---
+
+Website build: 
 
 # Solo
 
