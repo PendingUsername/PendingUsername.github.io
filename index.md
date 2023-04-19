@@ -2,13 +2,13 @@
 layout: default
 ---
 
-## Deprecated: Use my new theme "Duo" instead:
+## Cloud Resume Challenge 
 
-[https://chibicode.github.io/duo/](https://chibicode.github.io/duo/)
+[Cloud Resume](https://www.jc-resume.xyz/)
 
 ---
 
-[Solo](http://chibicode.github.io/solo) is a Jekyll theme that supports **single-page websites** only, but supports them well. Yes, it's responsive.
+[PendingUsername](https://github.com/PendingUsername) My Github with various projects, including my cloud resume. 
 
 <iframe src="https://ghbtns.com/github-btn.html?user=chibicode&amp;repo=solo&amp;type=watch&amp;count=true&amp;size=large"
   allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe><br/>
