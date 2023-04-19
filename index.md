@@ -77,13 +77,31 @@ async function updateCounter() {
 updateCounter();
 
 Step 8: Database
-> The eighth requirement is to store the visitor counter data in a database. For this challenge, it is suggested that you use Amazon DynamoDB, a fully managed NoSQL database service that can store and retrieve any amount of data. There are several tutorials available online that can help you set up and use DynamoDB for this challenge. Simply create a database 
+> The eighth requirement is to store the visitor counter data in a database. For this challenge, it is suggested that you use Amazon DynamoDB, a fully managed NoSQL database service that can store and retrieve any amount of data. There are several tutorials available online that can help you set up and use DynamoDB for this challenge. Simply create a database with "ID" as a string, set it to 0 and views as a number value.  
 
 Step 9: API
-> The ninth requirement is to create an API that accepts requests from your web app and communicates with the database. For this challenge, it is suggested that you use Amazon API Gateway and AWS Lambda. Make sure that the function is allowed to read and write to the database. This can be configured in the CORS settings. Here is my Lambda function:
+> The ninth requirement is to create an API that accepts requests from your web app and communicates with the database. For this challenge, it is suggested that you use Amazon API Gateway and AWS Lambda. Use the fuction URL to access the function and plug it in to the the script written above (Lambda URL). Make sure that the function is allowed to read and write to the database (permissions tab in Lambda) function the permissions. Also configure CORS settings (allow any origin using '*'). Here is my Lambda function:
+
+import json
+import boto3
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table('cloudresume-test')
+def lambda_handler(event, context):
+    response = table.get_item(Key={
+        'id':'0'
+    })
+    views = response['Item']['views']
+    views = views + 1
+    print(views)
+    response = table.put_item(Item={
+        'id':'0',
+        'views': views
+    })
+    
+    return views
 
 Step 10: Python
-> To complete the Cloud Resume Challenge, you will need to write code in the AWS Lambda function. While you could use more Javascript, it would be better for our purposes to explore Python, a common language used in back-end programs and scripts, and its boto3 library for AWS. If you are not familiar with Python, there are many free tutorials available online to get started.
+> To complete the Cloud Resume Challenge, you will need to write code in the AWS Lambda function. While you could use more Javascript, it would be better for our purposes to explore Python, a common language used in back-end programs and scripts, and its boto3 library for AWS. If you are not familiar with Python, there are many free tutorials available online to get started. See code above. 
 
 Step 11: Tests
 > It is important to include tests for your Python code to ensure it functions correctly. This helps catch any bugs or errors before deployment, which can save you time and headaches later. There are many resources available online to help you write good Python tests. Some important aspects of testing include covering edge cases, verifying expected behavior, and maintaining code coverage.
