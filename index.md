@@ -43,13 +43,13 @@ Route 53:
 
 ## The Challenge
 
-The Cloud Resume Challenge is a project created by Forrest Brazeal, an AWS Serverless Hero. This challenge is a great opportunity for individuals to enhance their skills and knowledge on AWS services, particularly on serverless computing. In this blog post, we will discuss the different tasks that one needs to accomplish to complete the Cloud Resume Challenge.
+The Cloud Resume Challenge is a project created by Forrest Brazeal. This challenge is a great opportunity for individuals to enhance their skills and knowledge on AWS services, particularly on serverless computing. In this blog post, we will discuss the different tasks that one needs to accomplish to complete the Cloud Resume Challenge.
 
 Certification
-> The first requirement for the Cloud Resume Challenge is to have an AWS Cloud Practitioner certification on your resume. This certification serves as an introductory course to AWS Cloud, which helps you understand the basics of cloud computing. It can be taken online for $100 USD, and there are exam prep resources available on A Cloud Guru.
+> The first requirement for the Cloud Resume Challenge is to have an AWS Cloud Practitioner certification on your resume. This certification serves as an introductory course to AWS Cloud, which helps you understand the basics of cloud computing. I also took the Solutions Architect exam. It can be taken online for $100 USD, and there are exam prep resources available on Udemy. I recommend using the Udemy course by Stephan Maarek. [Udemy Course](https://www.udemy.com/share/106WtA3@_RiQLhVwYmyeFFkFwb0fSmBa5YSOv_MmpoiV40vPi8znRpovdV_bI34Y1nmZZ7igPg==/)
 
 HTML
-> The second requirement is to create your resume using HTML. This means that your resume should not be in a Word document or PDF. You can use any text editor or Integrated Development Environment (IDE) to write your resume in HTML. There are several online resources that can help you learn HTML, such as W3Schools, MDN Web Docs, and Codecademy.
+> The second requirement is to create your resume using HTML. This means that your resume should not be in a Word document or PDF. You can use any text editor or Integrated Development Environment (IDE) to write your resume in HTML. There are several online resources that can help you learn HTML, such as W3Schools, MDN Web Docs, and Codecademy. I used an HTML5 template. WebDev has never been easier. 
 
 CSS
 > Styling your resume with CSS is the third requirement of the Cloud Resume Challenge. This means that your resume should not only be in raw HTML but should also have a visually appealing design. You can use CSS to customize the font, color, layout, and other design elements of your resume. There are several online resources that can help you learn CSS, such as W3Schools, MDN Web Docs, and Codecademy.
