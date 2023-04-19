@@ -2,7 +2,7 @@
 layout: default
 ---
 
-## Cloud Resume Challenge(https://cloudresumechallenge.dev/docs/the-challenge/aws/)
+## [Cloud Resume Challenge](https://cloudresumechallenge.dev/docs/the-challenge/aws/)
 
 [Cloud Resume](https://www.jc-resume.xyz/)
 
