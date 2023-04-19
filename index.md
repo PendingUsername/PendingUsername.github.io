@@ -55,15 +55,15 @@ Step 3: CSS
 > Styling your resume with CSS is the third requirement of the Cloud Resume Challenge. This means that your resume should not only be in raw HTML but should also have a visually appealing design. You can use CSS to customize the font, color, layout, and other design elements of your resume. There are several online resources that can help you learn CSS, such as W3Schools, MDN Web Docs, and Codecademy.
 
 Step 4: Static Website
-> The fourth requirement is to deploy your HTML and CSS resume as a static website using Amazon S3. A static website is a type of website that only contains HTML, CSS, and JavaScript files and does not require any server-side processing. Amazon S3 is a storage service that allows you to host static websites at a low cost. There are several tutorials available online that can help you deploy your website using Amazon S3. Simply create a S3 bucket for your site and make the contents public. This video does a great job explaining the process and taught me a ton. Video-> [S3 + CloudFront](https://www.youtube.com/watch?v=mls8tiiI3uc&t=580s)
+> The fourth requirement is to deploy your HTML and CSS resume as a static website using Amazon S3. A static website is a type of website that only contains HTML, CSS, and JavaScript files and does not require any server-side processing. Amazon S3 is a storage service that allows you to host static websites at a low cost. There are several tutorials available online that can help you deploy your website using Amazon S3. Simply create a S3 bucket for your site and make the contents public. This video does a great job explaining the process and taught me a ton. [S3 + CloudFront](https://www.youtube.com/watch?v=mls8tiiI3uc&t=580s)
 
 Step 5: HTTPS
-> The fifth requirement is to use HTTPS for your S3 website URL. HTTPS is a secure protocol that encrypts the data transmitted between the website and the user's browser. To use HTTPS, you need to use Amazon CloudFront, a content delivery network (CDN) service that can distribute your website's content to users worldwide. There are several tutorials available online that can help you enable HTTPS for your S3 website using CloudFront. Video-> [CloudFront](https://www.youtube.com/watch?v=mls8tiiI3uc&t=580s)
+> The fifth requirement is to use HTTPS for your S3 website URL. HTTPS is a secure protocol that encrypts the data transmitted between the website and the user's browser. To use HTTPS, you need to use Amazon CloudFront, a content delivery network (CDN) service that can distribute your website's content to users worldwide. There are several tutorials available online that can help you enable HTTPS for your S3 website using [CloudFront](https://www.youtube.com/watch?v=mls8tiiI3uc&t=580s).
 
-DNS
-> The sixth requirement is to point a custom DNS domain name to the CloudFront distribution so that your resume can be accessed at a custom URL like my-c00l-resume-website.com. You can use Amazon Route 53 or any other DNS provider for this. Route 53 is a domain name system (DNS) service that allows you to register and manage domain names. There are several tutorials available online that can help you set up your custom DNS domain name using Route 53. Video-> [Route 53](https://www.youtube.com/watch?v=mls8tiiI3uc&t=580s)
+Step 6: DNS
+> The sixth requirement is to point a custom DNS domain name to the CloudFront distribution so that your resume can be accessed at a custom URL like my-c00l-resume-website.com. You can use Amazon Route 53 or any other DNS provider for this. Route 53 is a domain name system (DNS) service that allows you to register and manage domain names. There are several tutorials available online that can help you set up your custom DNS domain name using [Route 53](https://www.youtube.com/watch?v=mls8tiiI3uc&t=580s).
 
-Javascript
+Step 7: Javascript
 > The seventh requirement is to include a visitor counter on your website that displays how many people have accessed your site. To achieve this, you need to write a bit of JavaScript code that counts the number of visitors and displays it on the website. Create and index.js file, then call the script in your index.html. There are several tutorials available online that can help you add a visitor counter using JavaScript. Mine looked something like this: 
 
 //counter
@@ -76,28 +76,31 @@ async function updateCounter() {
 
 updateCounter();
 
-Database
+Step 8: Database
 > The eighth requirement is to store the visitor counter data in a database. For this challenge, it is suggested that you use Amazon DynamoDB, a fully managed NoSQL database service that can store and retrieve any amount of data. There are several tutorials available online that can help you set up and use DynamoDB for this challenge. Simply create a database 
 
-API
+Step 9: API
 > The ninth requirement is to create an API that accepts requests from your web app and communicates with the database. For this challenge, it is suggested that you use Amazon API Gateway and AWS Lambda. Make sure that the function is allowed to read and write to the database. This can be configured in the CORS settings. Here is my Lambda function:
 
-Python
+Step 10: Python
 > To complete the Cloud Resume Challenge, you will need to write code in the AWS Lambda function. While you could use more Javascript, it would be better for our purposes to explore Python, a common language used in back-end programs and scripts, and its boto3 library for AWS. If you are not familiar with Python, there are many free tutorials available online to get started.
 
-Tests
+Step 11: Tests
 > It is important to include tests for your Python code to ensure it functions correctly. This helps catch any bugs or errors before deployment, which can save you time and headaches later. There are many resources available online to help you write good Python tests. Some important aspects of testing include covering edge cases, verifying expected behavior, and maintaining code coverage.
 
-Infrastructure as Code
+Step 12: Infrastructure as Code
 > Manually configuring your API resources - the DynamoDB table, the API Gateway, and the Lambda function - by clicking around in the AWS console can be time-consuming and error-prone. Instead, it is better to define them in an AWS Serverless Application Model (SAM) template and deploy them using the AWS SAM CLI. This is called "infrastructure as code" (IaC) and can save you time in the long run. SAM is a great tool for AWS serverless APIs, but if you prefer to use Terraform, it is a more broadly applicable and commonly-used IaC tool in the industry.
 
-Source Control
+Step 13: Source Control
 > It is essential to use source control to manage your codebase effectively. By creating a GitHub repository for your backend code, you can track changes, collaborate with others, and ensure that you always have access to your code. Avoid updating your back-end API or your front-end website by making calls from your laptop; instead, use source control to update them automatically whenever you make a change to the code.
 
-CI/CD (Back end)
+Step 14: CI/CD (Back end)
 > Continuous integration and deployment (CI/CD) is an essential part of modern software development. To set up CI/CD for the back-end of your Cloud Resume Challenge, you can use GitHub Actions. Whenever you push an update to your Serverless Application Model template or Python code, your Python tests should get run. If the tests pass, the SAM application should get packaged and deployed to AWS.
 
-CI/CD (Front end)
+Step 15: CI/CD (Front end)
 > Create a second GitHub repository for your website code. Then, create GitHub Actions such that when you push new website code, the S3 bucket automatically gets updated. You may also need to invalidate your CloudFront cache in the code. It is crucial not to commit AWS credentials to source control, as bad actors could find them and use them against you.
+
+Step 16: Blog Post
+> Created this blog post to discuss what I learned.
 
 In conclusion, the Cloud Resume Challenge is an excellent opportunity to gain experience in cloud technologies and showcase your skills to potential employers. By following these steps, you can complete the challenge and create a cloud-hosted resume website using various AWS services and best practices. Don't forget to focus on Python, testing, infrastructure as code, source control, and CI/CD for both the back-end and front-end.
