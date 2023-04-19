@@ -46,25 +46,35 @@ Route 53:
 The Cloud Resume Challenge is a project created by Forrest Brazeal. This challenge is a great opportunity for individuals to enhance their skills and knowledge on AWS services, particularly on serverless computing. In this blog post, we will discuss the different tasks that one needs to accomplish to complete the Cloud Resume Challenge.
 
 Certification
-> The first requirement for the Cloud Resume Challenge is to have an AWS Cloud Practitioner certification on your resume. This certification serves as an introductory course to AWS Cloud, which helps you understand the basics of cloud computing. I also took the Solutions Architect exam. It can be taken online for $100 USD, and there are exam prep resources available on Udemy. I recommend using the Udemy course by Stephan Maarek. [Udemy Course](https://www.udemy.com/share/106WtA3@_RiQLhVwYmyeFFkFwb0fSmBa5YSOv_MmpoiV40vPi8znRpovdV_bI34Y1nmZZ7igPg==/)
+> The first requirement for the Cloud Resume Challenge is to have an AWS Cloud Practitioner certification on your resume. This certification serves as an introductory course to AWS Cloud, which helps you understand the basics of cloud computing. I also took the Solutions Architect exam. It can be taken online for $100 USD, and there are exam prep resources available on Udemy. I recommend using the Udemy course by Stephan Maarek. Link to the course -> [Udemy Course](https://www.udemy.com/share/106WtA3@_RiQLhVwYmyeFFkFwb0fSmBa5YSOv_MmpoiV40vPi8znRpovdV_bI34Y1nmZZ7igPg==/)
 
 HTML
-> The second requirement is to create your resume using HTML. This means that your resume should not be in a Word document or PDF. You can use any text editor or Integrated Development Environment (IDE) to write your resume in HTML. There are several online resources that can help you learn HTML, such as W3Schools, MDN Web Docs, and Codecademy. I used an HTML5 template. WebDev has never been easier. 
+> The second requirement is to create your resume using HTML. This means that your resume should not be in a Word document or PDF. You can use any text editor or Integrated Development Environment (IDE) to write your resume in HTML. There are several online resources that can help you learn HTML, such as W3Schools, MDN Web Docs, and Codecademy. I used an HTML5 template, editing it to meet my needs. WebDev has never been easier. 
 
 CSS
 > Styling your resume with CSS is the third requirement of the Cloud Resume Challenge. This means that your resume should not only be in raw HTML but should also have a visually appealing design. You can use CSS to customize the font, color, layout, and other design elements of your resume. There are several online resources that can help you learn CSS, such as W3Schools, MDN Web Docs, and Codecademy.
 
 Static Website
-> The fourth requirement is to deploy your HTML and CSS resume as a static website using Amazon S3. A static website is a type of website that only contains HTML, CSS, and JavaScript files and does not require any server-side processing. Amazon S3 is a storage service that allows you to host static websites at a low cost. There are several tutorials available online that can help you deploy your website using Amazon S3.
+> The fourth requirement is to deploy your HTML and CSS resume as a static website using Amazon S3. A static website is a type of website that only contains HTML, CSS, and JavaScript files and does not require any server-side processing. Amazon S3 is a storage service that allows you to host static websites at a low cost. There are several tutorials available online that can help you deploy your website using Amazon S3. Simply create a S3 bucket for your site and make the contents public. This video does a great job explaining the process and taught me a ton. [S3 + CloudFront](https://www.youtube.com/watch?v=mls8tiiI3uc&t=580s)
 
 HTTPS
-> The fifth requirement is to use HTTPS for your S3 website URL. HTTPS is a secure protocol that encrypts the data transmitted between the website and the user's browser. To use HTTPS, you need to use Amazon CloudFront, a content delivery network (CDN) service that can distribute your website's content to users worldwide. There are several tutorials available online that can help you enable HTTPS for your S3 website using CloudFront.
+> The fifth requirement is to use HTTPS for your S3 website URL. HTTPS is a secure protocol that encrypts the data transmitted between the website and the user's browser. To use HTTPS, you need to use Amazon CloudFront, a content delivery network (CDN) service that can distribute your website's content to users worldwide. There are several tutorials available online that can help you enable HTTPS for your S3 website using CloudFront. [CloudFront](https://www.youtube.com/watch?v=mls8tiiI3uc&t=580s)
 
 DNS
-> The sixth requirement is to point a custom DNS domain name to the CloudFront distribution so that your resume can be accessed at a custom URL like my-c00l-resume-website.com. You can use Amazon Route 53 or any other DNS provider for this. Route 53 is a domain name system (DNS) service that allows you to register and manage domain names. There are several tutorials available online that can help you set up your custom DNS domain name using Route 53.
+> The sixth requirement is to point a custom DNS domain name to the CloudFront distribution so that your resume can be accessed at a custom URL like my-c00l-resume-website.com. You can use Amazon Route 53 or any other DNS provider for this. Route 53 is a domain name system (DNS) service that allows you to register and manage domain names. There are several tutorials available online that can help you set up your custom DNS domain name using Route 53. [Route 53](https://www.youtube.com/watch?v=mls8tiiI3uc&t=580s)
 
 Javascript
-> The seventh requirement is to include a visitor counter on your website that displays how many people have accessed your site. To achieve this, you need to write a bit of JavaScript code that counts the number of visitors and displays it on the website. There are several tutorials available online that can help you add a visitor counter using JavaScript.
+> The seventh requirement is to include a visitor counter on your website that displays how many people have accessed your site. To achieve this, you need to write a bit of JavaScript code that counts the number of visitors and displays it on the website. Create and index.js file, then call the script in your index.html. There are several tutorials available online that can help you add a visitor counter using JavaScript. Mine looked something like this: 
+
+[ //counter
+const counter = document.querySelector(".counter-number");
+async function updateCounter() {
+    let response = await fetch("https://bvr4gvb3qbttgnl7fanvbxggkm0tbhmr.lambda-url.us-east-1.on.aws/");
+    let data = await response.json();
+    counter.innerHTML = `Views: ${data}`;
+}
+
+updateCounter(); ]
 
 Database
 > The eighth requirement is to store the visitor counter data in a database. For this challenge, it is suggested that you use Amazon DynamoDB, a fully managed NoSQL database service that can store and retrieve any amount of data. There are several tutorials available online that can help you set up and use DynamoDB for this challenge.
