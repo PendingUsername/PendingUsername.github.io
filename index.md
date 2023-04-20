@@ -119,9 +119,8 @@ Step 14: CI/CD (Back end)*
 Step 15: CI/CD (Front end)
 > Create a second GitHub repository for your website code. Then, create GitHub Actions such that when you push new website code, the S3 bucket automatically gets updated. You may also need to invalidate your CloudFront cache in the code. It is crucial not to commit AWS credentials to source control, as bad actors could find them and use them against you. Create a _config.yml file containing the following:
 
-name: Upload website to S3
-
 ```YAML
+name: Upload website to S3
 on:
   push:
     branches:
