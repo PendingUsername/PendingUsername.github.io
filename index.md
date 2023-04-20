@@ -30,7 +30,7 @@ Technologies Used
 [GitHub Actions](https://github.com/features/actions):
 > GitHub Actions is used for continuous integration and deployment of the website. The site is automatically built and deployed to S3 and CloudFront when new changes are pushed to the master branch.
 
-[Python](https://www.python.org/) and Java(https://en.wikipedia.org/wiki/JavaScript):
+[Python](https://www.python.org/) and [Java](https://en.wikipedia.org/wiki/JavaScript):
 > Python and Java are the primary programming languages used to develop the site's functionality. Python is used for serverless functions, while Java is used for the backend API.
 
 [CSS](https://en.wikipedia.org/wiki/CSS) and [HTML](https://en.wikipedia.org/wiki/HTML):
