@@ -1,4 +1,4 @@
-## Cloud Resume Blog: A blog for my Cloud Resume Challenge resume. 
+## Cloud Resume Challenge: A blog detailing my cloud resume. 
 
 [Resume](https://www.jc-resume.xyz/)
 
