@@ -66,7 +66,7 @@ Step 6: DNS
 Step 7: Javascript
 > The seventh requirement is to include a visitor counter on your website that displays how many people have accessed your site. To achieve this, you need to write a bit of JavaScript code that counts the number of visitors and displays it on the website. Create and index.js file, then call the script in your index.html. There are several tutorials available online that can help you add a visitor counter using JavaScript. Mine looked something like this: 
 
-//counter
+```//counter
 const counter = document.querySelector(".counter-number");
 async function updateCounter() {
     let response = await fetch("lambda-url");
@@ -74,7 +74,7 @@ async function updateCounter() {
     counter.innerHTML = `Views: ${data}`;
 }
 
-updateCounter();
+updateCounter();```
 
 Step 8: Database
 > The eighth requirement is to store the visitor counter data in a database. For this challenge, it is suggested that you use Amazon DynamoDB, a fully managed NoSQL database service that can store and retrieve any amount of data. There are several tutorials available online that can help you set up and use DynamoDB for this challenge. Simply create a database with "ID" as a string, set it to 0 and views as a number value.  
@@ -82,7 +82,7 @@ Step 8: Database
 Step 9: API
 > The ninth requirement is to create an API that accepts requests from your web app and communicates with the database. For this challenge, it is suggested that you use Amazon API Gateway and AWS Lambda. Use the fuction URL to access the function and plug it in to the the script written above (Lambda URL). Make sure that the function is allowed to read and write to the database (permissions tab in Lambda) function the permissions. Also configure CORS settings (allow any origin using '*'). Here is my Lambda function:
 
-[import json
+```import json
 import boto3
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('cloudresume-test')
@@ -98,7 +98,7 @@ def lambda_handler(event, context):
         'views': views
     })
     
-    return views]
+    return views]```
 
 Step 10: Python
 > To complete the Cloud Resume Challenge, you will need to write code in the AWS Lambda function. While you could use more Javascript, it would be better for our purposes to explore Python, a common language used in back-end programs and scripts, and its boto3 library for AWS. If you are not familiar with Python, there are many free tutorials available online to get started. The code above simply imports the json and boto3 libraries, calls the table, and gets triggers the response. Views and 'id' comes from the database (step 8)
@@ -118,7 +118,7 @@ Step 14: CI/CD (Back end)*
 Step 15: CI/CD (Front end)
 > Create a second GitHub repository for your website code. Then, create GitHub Actions such that when you push new website code, the S3 bucket automatically gets updated. You may also need to invalidate your CloudFront cache in the code. It is crucial not to commit AWS credentials to source control, as bad actors could find them and use them against you. Create a _config.yml file containing the following:
 
-[name: Upload website to S3
+```name: Upload website to S3
 
 on:
   push:
@@ -138,7 +138,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'
-          SOURCE_DIR: 'your-website-name']
+          SOURCE_DIR: 'your-website-name']```
 
 Add the keys to your Github secerts. This can be done in the setting tab. The secerts can be contained from you AWS account, under IAM. 
 
