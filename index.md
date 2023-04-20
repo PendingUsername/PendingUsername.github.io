@@ -147,6 +147,6 @@ jobs:
 Add the keys to your Github secerts. This can be done in the setting tab. The secerts can be contained from you AWS account, under IAM. 
 
 Step 16: Blog Post
-> Created this blog post to discuss what I learned.
+> Created this blog post to dicuss my process.
 
 In conclusion, the Cloud Resume Challenge is an excellent opportunity to gain experience in cloud technologies and showcase your skills to potential employers. By following these steps, you can complete the challenge and create a cloud-hosted resume website using various AWS services and best practices. Don't forget to focus on Python, testing, infrastructure as code, source control, and CI/CD for both the back-end and front-end.
