@@ -66,15 +66,15 @@ Step 6: DNS
 Step 7: Javascript
 > The seventh requirement is to include a visitor counter on your website that displays how many people have accessed your site. To achieve this, you need to write a bit of JavaScript code that counts the number of visitors and displays it on the website. Create and index.js file, then call the script in your index.html. There are several tutorials available online that can help you add a visitor counter using JavaScript. Mine looked something like this: 
 
-```//counter
-const counter = document.querySelector(".counter-number");
-async function updateCounter() {
-    let response = await fetch("lambda-url");
-    let data = await response.json();
-    counter.innerHTML = `Views: ${data}`;
-}
+`//counter`
+`const counter = document.querySelector(".counter-number");`
+`async function updateCounter() {`
+    `let response = await fetch("lambda-url");`
+    `let data = await response.json();`
+    `counter.innerHTML = `Views: ${data}`;`
+`}`
 
-updateCounter();```
+`updateCounter();`
 
 Step 8: Database
 > The eighth requirement is to store the visitor counter data in a database. For this challenge, it is suggested that you use Amazon DynamoDB, a fully managed NoSQL database service that can store and retrieve any amount of data. There are several tutorials available online that can help you set up and use DynamoDB for this challenge. Simply create a database with "ID" as a string, set it to 0 and views as a number value.  
