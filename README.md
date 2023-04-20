@@ -1,6 +1,7 @@
 ## Cloud Resume Challenge: A blog detailing my cloud resume. 
 
 [Resume](https://www.jc-resume.xyz/)
+[Challenge](https://cloudresumechallenge.dev/docs/the-challenge/aws/)
 
 ---
 
