@@ -82,6 +82,7 @@ Step 8: Database
 Step 9: API
 > The ninth requirement is to create an API that accepts requests from your web app and communicates with the database. For this challenge, it is suggested that you use Amazon API Gateway and AWS Lambda. Use the fuction URL to access the function and plug it in to the the script written above (Lambda URL). Make sure that the function is allowed to read and write to the database (permissions tab in Lambda) function the permissions. Also configure CORS settings (allow any origin using '*'). Here is my Lambda function:
 
+```python
 import json
 import boto3
 dynamodb = boto3.resource('dynamodb')
@@ -99,7 +100,7 @@ def lambda_handler(event, context):
     })
     
     return views
-
+```
 Step 10: Python
 > To complete the Cloud Resume Challenge, you will need to write code in the AWS Lambda function. While you could use more Javascript, it would be better for our purposes to explore Python, a common language used in back-end programs and scripts, and its boto3 library for AWS. If you are not familiar with Python, there are many free tutorials available online to get started. The code above simply imports the json and boto3 libraries, calls the table, and gets triggers the response. Views and 'id' comes from the database (step 8)
 
