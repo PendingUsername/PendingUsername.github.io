@@ -121,6 +121,7 @@ Step 15: CI/CD (Front end)
 
 name: Upload website to S3
 
+```YAML
 on:
   push:
     branches:
@@ -140,6 +141,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'
           SOURCE_DIR: 'your-website-name']
+```
 
 Add the keys to your Github secerts. This can be done in the setting tab. The secerts can be contained from you AWS account, under IAM. 
 
