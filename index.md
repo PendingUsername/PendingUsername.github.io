@@ -41,7 +41,7 @@ Technologies Used
 
 ------------------
 
-## The Challenge
+## [The Challenge](https://cloudresumechallenge.dev/)
 
 The Cloud Resume Challenge is a project created by Forrest Brazeal. This challenge is a great opportunity for individuals to enhance their skills and knowledge on AWS services, particularly on serverless computing. In this blog post, we will discuss the different tasks that one needs to accomplish to complete the Cloud Resume Challenge.
 
@@ -55,7 +55,7 @@ Step 3: [CSS](https://en.wikipedia.org/wiki/CSS)
 > Styling your resume with CSS is the third requirement of the Cloud Resume Challenge. This means that your resume should not only be in raw HTML but should also have a visually appealing design. You can use CSS to customize the font, color, layout, and other design elements of your resume. There are several online resources that can help you learn CSS, such as W3Schools, MDN Web Docs, and Codecademy.
 
 Step 4: [Static Website](https://en.wikipedia.org/wiki/Static_web_page)
-> The fourth requirement is to deploy your HTML and CSS resume as a static website using Amazon S3. A static website is a type of website that only contains HTML, CSS, and JavaScript files and does not require any server-side processing. Amazon S3 is a storage service that allows you to host static websites at a low cost. There are several tutorials available online that can help you deploy your website using Amazon S3. Simply create a S3 bucket for your site and make the contents public. This video does a great job explaining the process and taught me a ton. [S3 + CloudFront](https://www.youtube.com/watch?v=mls8tiiI3uc&t=580s)
+> The fourth requirement is to deploy your HTML and CSS resume as a static website using Amazon S3. A static website is a type of website that only contains HTML, CSS, and JavaScript files and does not require any server-side processing. Amazon S3 is a storage service that allows you to host static websites at a low cost. There are several tutorials available online that can help you deploy your website using Amazon S3. Simply create a S3 bucket for your site and make the contents public. This video does a great job explaining the process and taught me a ton. Implementing S3 and CloudFront -> [S3 + CloudFront](https://www.youtube.com/watch?v=mls8tiiI3uc&t=580s)
 
 Step 5: [HTTPS](https://en.wikipedia.org/wiki/HTTPS)
 > The fifth requirement is to use HTTPS for your S3 website URL. HTTPS is a secure protocol that encrypts the data transmitted between the website and the user's browser. To use HTTPS, you need to use Amazon CloudFront, a content delivery network (CDN) service that can distribute your website's content to users worldwide. There are several tutorials available online that can help you enable HTTPS for your S3 website using [CloudFront](https://www.youtube.com/watch?v=mls8tiiI3uc&t=580s).
