@@ -118,7 +118,8 @@ Step 13: [Source Control](https://aws.amazon.com/devops/source-control/)
 Step 14: [CI/CD](https://aws.amazon.com/serverless/sam/) (Back end)*
 > Continuous integration and deployment (CI/CD) is an essential part of modern software development. To set up CI/CD for the back-end of your Cloud Resume Challenge, you can use GitHub Actions. Whenever you push an update to your Serverless Application Model template or Python code, your Python tests should get run. If the tests pass, the SAM application should get packaged and deployed to AWS. You need to setup AWS CLI, use the AWS documentation and follow the steps. Then, run aws configure and type in your information. After this, run aws configure --profile your_cli_profile. Enter the same information that was entered previously. Create a folder for the infrastructure as code, create a file called provider.tf and add the following code: 
 
-```terraform {
+```
+terraform {
     required_providers {
         aws = {
             version = ">=4.9.0"
