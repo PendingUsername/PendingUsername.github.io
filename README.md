@@ -6,7 +6,7 @@
 
 ---
 
-Website build: 
+Website build uses Solo. 
 
 # Solo
 
