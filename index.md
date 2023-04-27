@@ -116,7 +116,24 @@ Step 13: [Source Control](https://aws.amazon.com/devops/source-control/)
 > It is essential to use source control to manage your codebase effectively. By creating a GitHub repository for your backend code, you can track changes, collaborate with others, and ensure that you always have access to your code. Avoid updating your back-end API or your front-end website by making calls from your laptop; instead, use source control to update them automatically whenever you make a change to the code. Resume on GitHub -> [aws-cloud-resume](https://github.com/PendingUsername/aws-cloud-resume)
 
 Step 14: [CI/CD](https://aws.amazon.com/serverless/sam/) (Back end)*
-> Continuous integration and deployment (CI/CD) is an essential part of modern software development. To set up CI/CD for the back-end of your Cloud Resume Challenge, you can use GitHub Actions. Whenever you push an update to your Serverless Application Model template or Python code, your Python tests should get run. If the tests pass, the SAM application should get packaged and deployed to AWS.
+> Continuous integration and deployment (CI/CD) is an essential part of modern software development. To set up CI/CD for the back-end of your Cloud Resume Challenge, you can use GitHub Actions. Whenever you push an update to your Serverless Application Model template or Python code, your Python tests should get run. If the tests pass, the SAM application should get packaged and deployed to AWS. You need to setup AWS CLI, use the AWS documentation and follow the steps. Then, run aws configure and type in your information. After this, run aws configure --profile your_cli_profile. Enter the same information that was entered previously. Create a folder for the infrastructure as code, create a file called provider.tf and add the following code: 
+
+```terraform {
+    required_providers {
+        aws = {
+            version = ">=4.9.0"
+            source  = "hashicorp/aws"
+        }
+    }
+}
+
+provider "aws" {
+    profile    = "your_cli_profile"
+    region     = "us-east-1"
+}
+```
+In the same folder, create a file called main.tf, adding the following code:
+
 
 Step 15: [CI/CD](https://github.blog/2022-02-02-build-ci-cd-pipeline-github-actions-four-steps/) (Front end)
 > Create a second GitHub repository for your website code. Then, create GitHub Actions such that when you push new website code, the S3 bucket automatically gets updated. You may also need to invalidate your CloudFront cache in the code. It is crucial not to commit AWS credentials to source control, as bad actors could find them and use them against you. Create a _config.yml file containing the following:
