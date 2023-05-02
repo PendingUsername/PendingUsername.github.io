@@ -113,13 +113,7 @@ Step 11: [Tests](https://en.wikipedia.org/wiki/Software_testing)
 > It is important to include tests for your Python code to ensure it functions correctly. This helps catch any bugs or errors before deployment, which can save you time and headaches later. There are many resources available online to help you write good Python tests. Some important aspects of testing include covering edge cases, verifying expected behavior, and maintaining code coverage. You can do this inside of AWS by clicking 'test'. 
 
 Step 12: [Infrastructure as Code](https://en.wikipedia.org/wiki/Infrastructure_as_code)*
-> Manually configuring your API resources - the DynamoDB table, the API Gateway, and the Lambda function - by clicking around in the AWS console can be time-consuming and error-prone. Instead, it is better to define them in an AWS Serverless Application Model (SAM) template and deploy them using the AWS SAM CLI. This is called "infrastructure as code" (IaC) and can save you time in the long run. SAM is a great tool for AWS serverless APIs, but if you prefer to use Terraform, it is a more broadly applicable and commonly-used IaC tool in the industry.
-
-Step 13: [Source Control](https://aws.amazon.com/devops/source-control/)
-> It is essential to use source control to manage your codebase effectively. By creating a GitHub repository for your backend code, you can track changes, collaborate with others, and ensure that you always have access to your code. Avoid updating your back-end API or your front-end website by making calls from your laptop; instead, use source control to update them automatically whenever you make a change to the code. Resume on GitHub -> [aws-cloud-resume](https://github.com/PendingUsername/aws-cloud-resume)
-
-Step 14: [CI/CD](https://aws.amazon.com/serverless/sam/) (Back end)*
-> Continuous integration and deployment (CI/CD) is an essential part of modern software development. To set up CI/CD for the back-end of your Cloud Resume Challenge, you can use GitHub Actions. Whenever you push an update to your Serverless Application Model template or Python code, your Python tests should get run. If the tests pass, the SAM application should get packaged and deployed to AWS. You need to setup AWS CLI, use the AWS documentation and follow the steps. Then, run aws configure and type in your information. After this, run aws configure --profile your_cli_profile. Enter the same information that was entered previously. Create a folder for the infrastructure as code, create a file called provider.tf and add the following code: 
+> Manually configuring your API resources - the DynamoDB table, the API Gateway, and the Lambda function - by clicking around in the AWS console can be time-consuming and error-prone. Instead, it is better to define them in an AWS Serverless Application Model (SAM) template and deploy them using the AWS SAM CLI. This is called "infrastructure as code" (IaC) and can save you time in the long run. SAM is a great tool for AWS serverless APIs, but if you prefer to use Terraform, it is a more broadly applicable and commonly-used IaC tool in the industry.You need to setup AWS CLI, use the AWS documentation and follow the steps. Then, run aws configure and type in your information. After this, run aws configure --profile your_cli_profile. Enter the same information that was entered previously. Create a folder for the infrastructure as code, create a file called provider.tf and add the following code: 
 
 ```
 terraform {
@@ -137,6 +131,101 @@ provider "aws" {
 }
 ```
 In the same folder, create a file called main.tf, adding the following code:
+
+```
+resource "aws_lambda_function" "func" {
+  filename         = data.archive_file.zip_the_python_code.output_path
+  source_code_hash = data.archive_file.zip_the_python_code.output_base64sha256
+  function_name    = "myfunc"
+  role             = aws_iam_role.iam_for_lambda.arn
+  handler          = "func.lambda_handler"
+  runtime          = "python3.8"
+}
+
+resource "aws_iam_role" "iam_for_lambda" {
+  name = "iam_for_lambda"
+
+  assume_role_policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": "sts:AssumeRole",
+      "Principal": {
+        "Service": "lambda.amazonaws.com"
+      },
+      "Effect": "Allow",
+      "Sid": ""
+    }
+  ]
+}
+EOF
+}
+
+resource "aws_iam_policy" "iam_policy_for_resume_project" {
+
+  name        = "aws_iam_policy_for_terraform_resume_project_policy"
+  path        = "/"
+  description = "AWS IAM Policy for managing the resume project role"
+    policy = jsonencode(
+    {
+      "Version" : "2012-10-17",
+      "Statement" : [
+        {
+          "Action" : [
+            "logs:CreateLogGroup",
+            "logs:CreateLogStream",
+            "logs:PutLogEvents"
+          ],
+          "Resource" : "arn:aws:logs:*:*:*",
+          "Effect" : "Allow"
+        },
+        {
+          "Effect" : "Allow",
+          "Action" : [
+            "dynamodb:UpdateItem",
+			      "dynamodb:GetItem"
+          ],
+          "Resource" : "arn:aws:dynamodb:*:*:table/cloudresume-test"
+        },
+      ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "attach_iam_policy_to_iam_role" {
+  role = aws_iam_role.iam_for_lambda.name
+  policy_arn = aws_iam_policy.iam_policy_for_resume_project.arn
+  
+}
+
+data "archive_file" "zip_the_python_code" {
+  type        = "zip"
+  source_file = "${path.module}/lambda/func.py"
+  output_path = "${path.module}/lambda/func.zip"
+}
+
+resource "aws_lambda_function_url" "url1" {
+  function_name = aws_lambda_function.func.function_name
+  authorization_type = "NONE"
+  
+  cors {
+    allow_credentials = true
+    allow_origins     = ["website"] 
+    allow_methods     = ["*"]
+    allow_headers     = ["date", "keep-alive"]
+    expose_headers    = ["keep alive", "date"]
+    max_age           = 86400
+  }
+}    
+
+```
+Make sure that the name of your function and "website" are changed to their correct names. This Terraform code provisions an AWS Lambda function named "func" with the specified configuration, such as the runtime, handler, and IAM role that the function will assume. The IAM role is created with an assume role policy that allows AWS Lambda to assume the role, and an AWS Identity and Access Management (IAM) policy is attached to the role to grant permissions to the function to read and write to a specific DynamoDB table and create logs. Additionally, the code creates a URL for the function and sets CORS headers to allow requests from the specified domain. Finally, it zips up the source code for the function into a zip file for deployment. 
+
+Step 13: [Source Control](https://aws.amazon.com/devops/source-control/)
+> It is essential to use source control to manage your codebase effectively. By creating a GitHub repository for your backend code, you can track changes, collaborate with others, and ensure that you always have access to your code. Avoid updating your back-end API or your front-end website by making calls from your laptop; instead, use source control to update them automatically whenever you make a change to the code. Resume on GitHub -> [aws-cloud-resume](https://github.com/PendingUsername/aws-cloud-resume)
+
+Step 14: [CI/CD](https://aws.amazon.com/serverless/sam/) (Back end)*
+> Continuous integration and deployment (CI/CD) is an essential part of modern software development. To set up CI/CD for the back-end of your Cloud Resume Challenge, you can use GitHub Actions. Whenever you push an update to your Serverless Application Model template or Python code, your Python tests should get run. If the tests pass, the SAM application should get packaged and deployed to AWS. 
 
 
 Step 15: [CI/CD](https://github.blog/2022-02-02-build-ci-cd-pipeline-github-actions-four-steps/) (Front end)
