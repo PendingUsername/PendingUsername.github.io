@@ -39,6 +39,9 @@ Technologies Used
 [Route 53](https://aws.amazon.com/route53/):
 > Amazon Route 53 is used for DNS management for the website. It ensures that the website is accessible using a custom domain name.
 
+[Terraform](https://www.terraform.io/)
+> Terraform is a powerful infrastructure as code tool that allows you to define and manage your cloud infrastructure as code. For your cloud resume challenge, you can use Terraform to automate the deployment of your AWS Lambda function.
+
 ------------------
 
 ## [The Challenge](https://cloudresumechallenge.dev/)
