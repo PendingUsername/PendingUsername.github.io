@@ -112,7 +112,7 @@ Step 10: [Python](https://www.python.org/)
 Step 11: [Tests](https://en.wikipedia.org/wiki/Software_testing)
 > It is important to include tests for your Python code to ensure it functions correctly. This helps catch any bugs or errors before deployment, which can save you time and headaches later. There are many resources available online to help you write good Python tests. Some important aspects of testing include covering edge cases, verifying expected behavior, and maintaining code coverage. You can do this inside of AWS by clicking 'test'. 
 
-Step 12: [Infrastructure as Code](https://en.wikipedia.org/wiki/Infrastructure_as_code)*
+Step 12: [Infrastructure as Code](https://en.wikipedia.org/wiki/Infrastructure_as_code)
 > Manually configuring your API resources - the DynamoDB table, the API Gateway, and the Lambda function - by clicking around in the AWS console can be time-consuming and error-prone. Instead, it is better to define them in an AWS Serverless Application Model (SAM) template and deploy them using the AWS SAM CLI. This is called "infrastructure as code" (IaC) and can save you time in the long run. SAM is a great tool for AWS serverless APIs, but if you prefer to use Terraform, it is a more broadly applicable and commonly-used IaC tool in the industry.You need to setup AWS CLI, use the AWS documentation and follow the steps. Then, run aws configure and type in your information. After this, run aws configure --profile your_cli_profile. Enter the same information that was entered previously. Create a folder for the infrastructure as code, create a file called provider.tf and add the following code: 
 
 ```
@@ -224,8 +224,8 @@ Make sure that the name of your function and "website" are changed to their corr
 Step 13: [Source Control](https://aws.amazon.com/devops/source-control/)
 > It is essential to use source control to manage your codebase effectively. By creating a GitHub repository for your backend code, you can track changes, collaborate with others, and ensure that you always have access to your code. Avoid updating your back-end API or your front-end website by making calls from your laptop; instead, use source control to update them automatically whenever you make a change to the code. Resume on GitHub -> [aws-cloud-resume](https://github.com/PendingUsername/aws-cloud-resume)
 
-Step 14: [CI/CD](https://aws.amazon.com/serverless/sam/) (Back end)*
-> Continuous integration and deployment (CI/CD) is an essential part of modern software development. To set up CI/CD for the back-end of your Cloud Resume Challenge, you can use GitHub Actions. Whenever you push an update to your Serverless Application Model template or Python code, your Python tests should get run. If the tests pass, the SAM application should get packaged and deployed to AWS. 
+Step 14: [CI/CD](https://aws.amazon.com/serverless/sam/) (Back end)
+> Continuous integration and deployment (CI/CD) is an essential part of modern software development. To set up CI/CD for the back-end of your Cloud Resume Challenge, you can use GitHub Actions. Whenever you push an update to your Serverless Application Model template or Python code, your Python tests should get run. If the tests pass, the SAM application should get packaged and deployed to AWS. Documentation-> [GitHub Actions](https://github.com/features/actions) and [tutorial](https://www.youtube.com/watch?v=R8_veQiYBjI)
 
 
 Step 15: [CI/CD](https://github.blog/2022-02-02-build-ci-cd-pipeline-github-actions-four-steps/) (Front end)
@@ -259,4 +259,4 @@ Add the keys to your Github secerts. This can be done in the setting tab. The se
 Step 16: [Blog Post](https://pendingusername.github.io/)
 Created this blog post to dicuss my process.
 
-> In conclusion, the Cloud Resume Challenge is an excellent opportunity to gain experience in cloud technologies and showcase your skills to potential employers. By following these steps, you can complete the challenge and create a cloud-hosted resume website using various AWS services and best practices. Don't forget to focus on Python, testing, infrastructure as code, source control, and CI/CD for both the back-end and front-end.
+> In conclusion, the Cloud Resume Challenge is an excellent opportunity to gain experience in cloud technologies and showcase your skills to potential employers. By following these steps, you can complete the challenge and create a cloud-hosted resume website using various AWS services and best practices. Don't forget to focus on Python, testing, infrastructure as code, source control, and CI/CD for both the back-end and front-end. You will learn to use tons of new technologies and how to troubleshoot problems you run into. This is the best way to learn real skills cloud engineers use regularly. 
